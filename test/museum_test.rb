@@ -1,6 +1,7 @@
 require "minitest/autorun"
 require "minitest/pride"
 require "./lib/museum"
+require "./lib/exhibit"
 
 class MuseumTest < Minitest::Test
   def test_should_exist
@@ -12,5 +13,17 @@ class MuseumTest < Minitest::Test
     dmns = Museum.new("Denver Museum of Nature and Science")
     assert_equal "Denver Museum of Nature and Science", dmns.name
     assert_equal [], dmns.exhibits
+  end
+
+  def test_should_add_exhibit_into_exhibits_array
+    dmns = Museum.new("Denver Museum of Nature and Science")
+    gems_and_minerals = Exhibit.new({name: "Gems and Minerals", cost: 0})
+    dead_sea_scrolls = Exhibit.new({name: "Dead Sea Scrolls", cost: 10})
+    imax = Exhibit.new({name: "IMAX",cost: 15})
+    dmns.add_exhibit(gems_and_minerals)
+    dmns.add_exhibit(dead_sea_scrolls)
+    dmns.add_exhibit(imax)
+    expected = [<Exhibit:0x00007fb400bbcdd8...>, <Exhibit:0x00007fb400b851f8...>, <Exhibit:0x00007fb400acc590...>]
+    assert_equal expected, dmns.exhibits
   end
 end
