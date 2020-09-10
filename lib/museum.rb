@@ -53,4 +53,10 @@ class Museum
     winner = patrons[rand(0..(patrons.length-1))]
     winner.name
   end
+
+  def announce_lottery_winner(exhibit)
+    winner = draw_lottery_winner(exhibit)
+    return "No winners for this lottery" if winner == nil
+    return "#{winner} has won the #{exhibit.name} edhibit lottery"
+  end
 end

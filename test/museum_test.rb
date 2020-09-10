@@ -156,7 +156,7 @@ class MuseumTest < Minitest::Test
     dmns.admit(patron_2)
     dmns.admit(patron_3)
     dmns.stubs(:rand).returns(0)
-    assert_output /Bob has won the IMAX edhibit lottery/, dmns.announce_lottery_winner(imax)
-    assert_output /No winners for this lottery/, dmns.announce_lottery_winner(gems_and_minerals)
+    assert_equal "Bob has won the IMAX edhibit lottery", dmns.announce_lottery_winner(imax)
+    assert_equal "No winners for this lottery", dmns.announce_lottery_winner(gems_and_minerals)
   end
 end
