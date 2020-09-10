@@ -23,7 +23,7 @@ class MuseumTest < Minitest::Test
     dmns.add_exhibit(gems_and_minerals)
     dmns.add_exhibit(dead_sea_scrolls)
     dmns.add_exhibit(imax)
-    expected = [<Exhibit:0x00007fb400bbcdd8...>, <Exhibit:0x00007fb400b851f8...>, <Exhibit:0x00007fb400acc590...>]
+    expected = [gems_and_minerals,dead_sea_scrolls,imax]
     assert_equal expected, dmns.exhibits
   end
 end
