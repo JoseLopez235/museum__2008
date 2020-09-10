@@ -46,4 +46,11 @@ class Museum
     end
     poor_patrons
   end
+
+  def draw_lottery_winner(exhibit)
+    patrons = ticket_lottery_contestants(exhibit)
+    return nil if patrons.empty?
+    winner = patrons[rand(0..(patrons.length-1))]
+    winner.name
+  end
 end

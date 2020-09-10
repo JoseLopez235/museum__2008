@@ -131,9 +131,9 @@ class MuseumTest < Minitest::Test
     dmns.admit(patron_2)
     dmns.admit(patron_3)
 
-    bob = mock('Bob')
-    bob.stubs(:rand).returns(0)
-    assert_equal "Bob", dmns.draw_lottery_winner(dead_sea_scrolls)
-    assert_equal nil, dmns.draw_lottery_winner(gems_and_minerals)
+    dmns.stubs(:rand).returns(0)
+
+    assert_equal("Bob", dmns.draw_lottery_winner(dead_sea_scrolls))
+    assert_nil dmns.draw_lottery_winner(gems_and_minerals)
   end
 end
